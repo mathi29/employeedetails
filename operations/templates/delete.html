@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Employee</title>
+    <!-- Add Bootstrap CSS and JavaScript -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Delete Employee</h1>
+
+        <!-- Display Employee Details -->
+        <p>Are you sure you want to delete the following employee?</p>
+        <p><strong>Name:</strong> {{ employee.name }}</p>
+        <p><strong>Email:</strong> {{ employee.email }}</p>
+        <p><strong>Address:</strong> {{ employee.address }}</p>
+        <p><strong>Job Role:</strong> {{ employee.jobrole }}</p>
+
+
+
+        <!-- Delete Button Triggering Modal -->
+        <form method="post" action="{% url 'delete' employee.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete Employee</button>
+        </form>
+    </div>
+</body>
+</html>
